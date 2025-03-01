@@ -1,0 +1,15 @@
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\bin\Debug\net8.0\ServerLibrary.MyAPI.deps.json
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\bin\Debug\net8.0\ServerLibrary.MyAPI.dll
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\bin\Debug\net8.0\ServerLibrary.MyAPI.pdb
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\bin\Debug\net8.0\Library.LearningManagement.dll
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\bin\Debug\net8.0\Library.LearningManagement.pdb
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.csproj.AssemblyReference.cache
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.AssemblyInfoInputs.cache
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.AssemblyInfo.cs
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.csproj.CoreCompileInputs.cache
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLi.2646D0D6.Up2Date
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.dll
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\refint\ServerLibrary.MyAPI.dll
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ServerLibrary.MyAPI.pdb
+C:\Users\erikp\source\repos\Assignment1_CS\MyWebAPI\ServerLibrary.MyAPI\obj\Debug\net8.0\ref\ServerLibrary.MyAPI.dll

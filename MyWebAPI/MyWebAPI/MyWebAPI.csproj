@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServerLibrary.MyAPI\ServerLibrary.MyAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Library.LearningManagement">
+      <HintPath>..\..\App.Canvas\Library.LearningManagement\bin\Debug\net8.0\Library.LearningManagement.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
