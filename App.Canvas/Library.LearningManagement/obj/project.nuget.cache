@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/jEiXxU3PbCAJlDzTUSv4FxFj4Zr/NhezgI7OwsvOC4fDneCNk5Zp2Jpib3YyQpnJlBH6qfjtuYoBT8UbjTTpQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\erikp\\source\\repos\\Assignment1_CS\\App.Canvas\\Library.LearningManagement\\Library.LearningManagement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\erikp\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
