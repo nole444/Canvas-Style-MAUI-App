@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.StudentView"
+             Title="StudentView">
+    <VerticalStackLayout>
+        <Label 
+            Text="Student View"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <SearchBar Placeholder="Search Students"
+                   Text="{Binding Query, Mode=TwoWay}" />
+        <!-- List View to display students -->
+        <ListView ItemsSource="{Binding People}"
+                  SelectedItem="{Binding SelectedStudent, Mode=TwoWay}"
+                  ItemSelected="OnStudentSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Classification}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+       Text="Cancel"
+       Clicked="CancelClicked"
+ />
+    </VerticalStackLayout>
+</ContentPage>

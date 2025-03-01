@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.EditCourseAndStudentView"
+             Title="Edit Courses and Students"
+             NavigatedFrom="ContentPage_NavigatedFrom"
+             NavigatedTo="ContentPage_NavigatedTo">
+    
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <!-- Courses Section -->        
+            <Label Text="Select a Course" FontAttributes="Bold" FontSize="Large"/>
+            <Picker ItemsSource="{Binding Courses}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedCourse}">
+            </Picker>
+            <Entry Placeholder="Course Name" Text="{Binding SelectedCourse.Name, Mode=TwoWay}"/>
+            <Editor Placeholder="Course Description" Text="{Binding SelectedCourse.Description, Mode=TwoWay}"/>
+            <Button Text="Update Course" Clicked="EditCourseClicked"/>
+            <Button Text="Delete Course" Clicked="DeleteCourseClicked"/>
+
+            <!-- Students Picker Section -->
+            <Label Text="Select a Student" FontAttributes="Bold" FontSize="Large"/>
+            <Picker ItemsSource="{Binding Students}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedStudent}">
+            </Picker>
+            <Entry Placeholder="Student Name" Text="{Binding SelectedStudent.Name, Mode=TwoWay}"/>
+            <StackLayout RadioButtonGroup.GroupName="Classifications"
+        RadioButtonGroup.SelectedValue="{Binding NewClassification}">
+                <RadioButton
+            Content="Freshman"
+            Value="F"/>
+                <RadioButton
+            Content="Sophomore"
+            Value="O"/>
+                <RadioButton
+            Content="Junior"
+            Value="J"/>
+                <RadioButton
+            Content="Senior"
+            Value="S"/>
+            </StackLayout>
+            <Button Text="Update Student" Clicked="EditStudentClicked"/>
+            <Button Text="Remove Student From Course" Clicked="DeleteStudentClicked"/>
+
+            <!-- Students Picker Section for Deletion-->
+            <Label Text="Select a Student" FontAttributes="Bold" FontSize="Large"/>
+            <Picker ItemsSource="{Binding Students}"
+        ItemDisplayBinding="{Binding Name}"
+        SelectedItem="{Binding SelectedStudent}">
+            </Picker>
+            <Button Text="Delete student from database?"
+                    Clicked="DeleteStudentClicked"/>
+            <Button
+                Text="Cancel"
+                Clicked="CancelClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

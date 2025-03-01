@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.StudentCoursesView"
+            Title="{Binding StudentName, StringFormat='Welcome, {0}'}">
+    <!-- Dynamically set title to student's name -->
+    <VerticalStackLayout>
+        <Label Text="{Binding WelcomeMessage}" 
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+
+
+        <!-- ListView to display courses -->
+        <ListView ItemsSource="{Binding Courses}"
+                  SelectedItem="{Binding SelectedCourse, Mode=TwoWay}"
+                  ItemSelected="OnCourseSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"
+                              Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Modules" FontAttributes="Bold" FontSize="Medium"/>
+        
+        <!-- Displaying modules and content only for the selected course -->
+        <CollectionView ItemsSource="{Binding SelectedCourse.Modules}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#cccccc" Margin="5" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Small" />
+                            <Label Text="{Binding Description}" FontAttributes="Italic" FontSize="Small" />
+
+                            <!-- Nested CollectionView for Content Items -->
+                            <CollectionView ItemsSource="{Binding Content}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Padding="5">
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                            <Label Text="{Binding Description}" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <CollectionView ItemsSource="{Binding SelectedCourse.Assignments}">
+           <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" Margin="3" Padding="7">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Small" />
+                            <Label Text="{Binding Description}" FontAttributes="Italic" FontSize="Small" />
+                            <Label Text="{Binding TotalPointsAvailable}" FontAttributes="Italic" FontSize="Small" />
+                            <Label Text="{Binding DueDate}" FontAttributes="Italic" FontSize="Small" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>  
+
+        <Picker Title="Select Course to submit assignment:"
+  ItemsSource="{Binding Courses}"
+  ItemDisplayBinding="{Binding Code}"
+  SelectedItem="{Binding SelectedCourse}" /> 
+
+        <ListView
+          ItemsSource="{Binding SelectedCourse.Assignments}"
+          SelectedItem="{Binding SelectedAssignment}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <!--<CollectionView ItemsSource="{Binding Courses}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="10">
+                        <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                        <Label Text="{Binding Description}" />
+                        
+                        <Label Text="Modules:" 
+                               FontAttributes="Bold"/>
+
+                        <CollectionView ItemsSource="{Binding Modules}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Padding="5">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                        <Label Text="{Binding Description}" />
+                                        
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>-->
+
+
+
+
+        <!--<Label Text ="Assignments:"
+                               FontAttributes ="Bold"/>
+                        <CollectionView ItemsSource="{Binding Assignments}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout Padding="5">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                        <Label Text="{Binding Description}" />
+                                        <Label Text="{Binding TotalPointsAvailable, StringFormat='Points: {0}'}" />
+                                        <Label Text="{Binding Assignment.DueDate, StringFormat='Due: {0:MM/dd/yyyy}'}" />
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>-->
+
+        <Button Text="Pick File and Submit Assignment" 
+                                Clicked="PickFileAndSubmit" />
+
+    <Button
+              Text="Cancel"
+              Clicked="CancelClicked"
+        />
+    </VerticalStackLayout>
+</ContentPage>

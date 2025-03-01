@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.InstructorView"
+             Title="InstructorView"
+             NavigatedTo="ContentPage_NavigatedTo">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Enrollments"
+            Clicked="Toolbar_EnrollmentsClicked"
+            />
+        <ToolbarItem
+            Text="Courses"
+            Clicked="Toolbar_CoursesClicked"
+            />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <VerticalStackLayout>
+        <SearchBar
+            Text="{Binding Query, Mode=TwoWay}">
+          
+        </SearchBar>
+        <Label 
+               Text="Instructor View"
+                 VerticalOptions="Center" 
+             HorizontalOptions="Center" />
+        <!--<Button
+            Text="Cancel"
+             Clicked="CancelClicked"
+             />-->
+        
+        <!-- Enrollments StackLayout-->
+        <VerticalStackLayout IsVisible="{Binding IsEnrollmentsVisible}">
+            <Label
+                Text="Student Enrollments"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <ListView
+                ItemsSource="{Binding People }"
+                SelectedItem="{Binding SelectedStudent, Mode=TwoWay}"
+                ItemSelected="OnStudentChosen">
+            </ListView>
+            <Button
+                Text="Add Enrollment"
+                Clicked="AddEnrollmentClick"
+                />
+            <!-- Add student to course StackLayout -->
+            <VerticalStackLayout>
+                <Picker Title="Select Student"
+                ItemsSource="{Binding People}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedStudent}" />
+
+                <Picker Title="Select Course"
+                ItemsSource="{Binding Courses}"
+                ItemDisplayBinding="{Binding Code}"
+                SelectedItem="{Binding SelectedCourse}" />
+
+                <Button Text="Add to Course Roster"
+                Clicked="OnAddStudentClicked" />
+            </VerticalStackLayout>
+            <Button
+                Text="Cancel"
+                Clicked="CancelClicked"
+                 />
+        </VerticalStackLayout>
+        
+        <!--Courses StackLayout -->
+        <VerticalStackLayout IsVisible="{Binding IsCoursesVisible}">
+            <Label
+                Text="Courses List"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <ListView
+                ItemsSource="{Binding Courses }"
+                SelectedItem="{Binding SelectedCourse}">
+            </ListView>
+            <Button
+                 Text="Add Course"
+                Clicked="AddCourseClick"
+                 />
+                <Button Text="Edit Courses and Students"
+                    Clicked="EditCoursesAndStudentsClicked"/>
+                <Button
+                Text="Cancel"
+                 Clicked="CancelClicked"
+                    />
+
+            <!--</VerticalStackLayout>  
+        <Label 
+            Text="Instructor View"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <SearchBar
+            Text="{Binding Query, Mode=TwoWay}">
+        </SearchBar>
+            
+        <Button
+            Text="Enroll Students"
+            Clicked="AddEnrollmentClick"
+            />
+        <Button
+            Text="Cancel"
+            Clicked="CancelClicked"
+            />
+        <ListView
+            ItemsSource="{Binding People}">
+        </ListView>-->
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+        </ScrollView>
+</ContentPage>

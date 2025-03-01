@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.CourseDetailView"
+             Title="CourseDetailView">
+    <ScrollView>
+        <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label
+                Text="Course-Code"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Row="0"
+                Grid.Column="0"
+                />
+            <Entry
+                Text="{Binding Path=CourseCode, Mode=TwoWay}"
+                Grid.Row="1"
+                Grid.Column="0">
+            </Entry>
+            <Label
+                  Text="Name"
+                  VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Row="0"
+                Grid.Column="1"/>
+            <Entry
+                Text="{Binding Path=Name, Mode=TwoWay}"
+                Grid.Row="1"
+                Grid.Column="1">
+                
+            </Entry>
+        </Grid>
+        <Label
+            Text="Description"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        <Entry 
+            Text="{Binding Path=Description, Mode=TwoWay}">
+            
+        </Entry>
+
+        <Picker Title="Select Course to add Module to:"
+                ItemsSource="{Binding Courses}"
+                ItemDisplayBinding="{Binding Code}"
+                SelectedItem="{Binding SelectedCourse}" />
+
+        <Entry Placeholder="Module Name"
+               Text="{Binding ModuleName, Mode=TwoWay}" />
+
+        <Editor Placeholder="Module Description"
+                Text="{Binding ModuleDescription, Mode=TwoWay}"
+                AutoSize="TextChanges" />
+
+        <Button Text="Add Module"
+                Clicked="AddModuleClicked"/>
+        
+        
+        <Picker Title="Select Course to add assingment to:"
+         ItemsSource="{Binding Courses}"
+         ItemDisplayBinding="{Binding Code}"
+         SelectedItem="{Binding SelectedCourse}" />
+
+        <Entry Text="{Binding AssignmentName, Mode=TwoWay}" Placeholder="Enter assignment name"/>
+        <Entry Text="{Binding AssignmentDescription, Mode=TwoWay}" Placeholder="Enter assignment description"/>
+        <Entry Text="{Binding AssignmentPoints, Mode=TwoWay}" Keyboard="Numeric" Placeholder="Enter points for assignment"/>
+        <Entry Text="{Binding AssignmentDueDate, Mode=TwoWay}" Keyboard="Numeric" Placeholder="Enter Due-Date for assignment"/>
+
+            <Picker Title="Select an assingment group to add assignment to or create new assignment group below:"
+                   ItemsSource="{Binding SelectedCourse.AssignmentGroups}"
+                   ItemDisplayBinding="{Binding Name}"
+                   SelectedItem="{Binding GroupName}" />
+
+            <Entry Text="{Binding GroupName}" Placeholder="Enter new assignment groups name"/>
+
+            <Button Text="Add Assignment" Clicked="AddAssignmentToCourseClicked" />
+
+            <!-- Module Picker -->
+            <Picker Title="Select a module"
+         ItemsSource="{Binding Modules}"
+         ItemDisplayBinding="{Binding Name}"
+         SelectedItem="{Binding SelectedModule}"
+         IsEnabled="{Binding SelectedCourse}">
+            </Picker>
+
+            <Entry Text="{Binding ContentName, Mode=TwoWay}" Placeholder="Enter assignment name"/>
+        <Entry Text="{Binding ContentDescrip, Mode=TwoWay}" Placeholder="Enter assignment description"/>
+            <Entry Text="{Binding ContentPath, Mode=TwoWay}" Keyboard="Numeric" Placeholder="Enter points for assignment"/>
+
+            <Button Text="Add Content to Module" Clicked="AddContentToModuleClicked" />
+
+
+
+
+        <!-- Student Roster-->
+        <!--<Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>-->
+            <!--<Label
+                Text="Not Enrolled"
+                Grid.Column="0">
+            </Label>
+            <Label
+                 Text="Buttons"
+                 Grid.Column="1">
+            </Label>
+            <Label
+                Text="Enrolled"
+                Grid.Column="2">
+            </Label>
+        </Grid>-->
+        <!--<Label Text="Students" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+        --><!-- ListView for displaying all students --><!--
+        <ListView ItemsSource="{Binding People}" 
+                  SelectedItem="{Binding SelectedStudent}"
+                  HeightRequest="200">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Id}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        --><!-- Button for adding the selected student to the course --><!--
+        <Button Text="Add Selected Student to Course" 
+                Clicked="EnrollButtonClicked"
+                IsEnabled="{Binding SelectedStudent}"/>
+
+        <Button Text="Okay" Clicked="OkClicked"/>
+        <Button Text="Cancel" Clicked="CancelClicked"/>-->
+        <!-- Add student to course StackLayout -->
+      
+            <!--<Button Text="Add to Course Roster"
+    Command="{Binding AddStudentToCourseCommand}" />-->
+        <!--</VerticalStackLayout>-->
+     
+        <Button 
+            Text="Okay"
+            Clicked="OkClicked"
+            />
+        <Button
+            Text="Cancel"
+            Clicked="CancelClicked"/>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

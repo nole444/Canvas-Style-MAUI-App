@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICanvas.views.InstructorGradingView"
+             Title="InstructorGradingView">
+    <VerticalStackLayout>
+
+        <!-- ListView to display courses -->
+        <ListView ItemsSource="{Binding Courses}"
+                  SelectedItem="{Binding SelectedCourse, Mode=TwoWay}"
+                  ItemSelected="OnCourseSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"
+                              Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!-- Displaying modules and content only for the selected course -->
+        <CollectionView ItemsSource="{Binding SelectedCourse.Modules}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#cccccc" Margin="5" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Small" />
+                            <Label Text="{Binding Description}" FontAttributes="Italic" FontSize="Small" />
+
+                            <!-- Nested CollectionView for Content Items -->
+                            <CollectionView ItemsSource="{Binding Content}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Padding="5">
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                            <Label Text="{Binding Description}" />
+                                            <!-- Additional labels for assignment details if the content is an assignment -->
+                                            <Label Text="{Binding Assignment.Name}" 
+                                           IsVisible="{Binding Assignment}" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Assignment.Description}" 
+                                           IsVisible="{Binding Assignment}"/>
+                                            <Label Text="{Binding Assignment.TotalPointsAvailable, StringFormat='Points: {0}'}" 
+                                           IsVisible="{Binding Assignment}"/>
+                                            <Label Text="{Binding Assignment.DueDate, StringFormat='Due on: {0:d}'}" 
+                                           IsVisible="{Binding Assignment}"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+              Text="Cancel"
+              Clicked="CancelClicked"
+        />
+    </VerticalStackLayout>
+</ContentPage>
