@@ -1,4 +1,4 @@
-# 🎨 Canvas-Like Learning Management System (LMS)
+# Canvas-Like Learning Management System (LMS)
 This MAUI app allows teachers to create classes and students to join them and complete assignments similar to the Canvas web application.
 ## 📖 Overview
 The project is a **Canvas-like Learning Management System (LMS)** built using **C#**. It consists of two main components:
@@ -10,11 +10,11 @@ The project is designed to provide a **lightweight, scalable, and user-friendly*
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ---
 
-## 🏗️ **Technologies Used**
+##  **Technologies Used**
 ### Backend API (`MyWebAPI`)
 - **ASP.NET Core Web API** - RESTful API for backend services
 - **In-Memory Data Storage** - Data is persisted in-memory instead of using a database
@@ -29,7 +29,7 @@ The project is designed to provide a **lightweight, scalable, and user-friendly*
 
 ---
 
-## ⚙️ **Setup Instructions**
+## **Setup Instructions**
 
 ### Prerequisites
 Ensure you have the following installed:
