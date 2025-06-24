@@ -1,5 +1,5 @@
 # Canvas-Like Learning Management System (LMS)
-This MAUI app allows teachers to create classes and students to join them and complete assignments similar to the Canvas web application.
+This MAUI app allows teachers to create classes and students to join them and complete assignments similar to the Canvas web application. This application was a learning tool for understanding cross-platform development with .NET MAUI and is not intended to be a fully functional or production-ready system.
 ## 📖 Overview
 The project is a **Canvas-like Learning Management System (LMS)** built using **C#**. It consists of two main components:
 
